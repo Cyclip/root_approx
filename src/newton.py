@@ -29,6 +29,5 @@ def newton(f, x0):
     while abs(d(x) > 1e-5):
         x -= f(x)/d(x)
         history.append(x)
-        print(f"Current x: {x}, dy/dx = {d(x)}")
     
     return x, history
