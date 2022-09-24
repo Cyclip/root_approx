@@ -41,6 +41,7 @@ fig.suptitle("Approximating roots through multiple methods")
 
 # Ax1
 x = np.linspace(-10, 10, 100)
+ax1.plot(x, np.zeros(len(x)), color='gray')
 ax1.plot(x, f(x), label="f(x)")
 ax1.plot(history_nr, f(np.array(history_nr)), marker='o', label="History")
 ax1.plot(result_nr, f(result_nr), 'o', label="Result")
@@ -56,6 +57,7 @@ ax2.plot(x, f(x), label="f(x)")
 # Plot the x1 and x2 values
 x1 = [x[0] for x in history_s]
 x2 = [x[1] for x in history_s]
+ax1.plot(x, np.zeros(len(x)), color='gray')
 ax2.plot(x1, f(np.array(x1)), marker='o', label="History")
 ax2.plot(x2, f(np.array(x2)), marker='o')
 
