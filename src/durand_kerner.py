@@ -1,4 +1,5 @@
 import numpy as np
+import utils
 
 def prod_diff(x, i):
     """Product of the differences in all elements of list against i, excluding i"""
@@ -21,7 +22,7 @@ def durand_kerner(f, deg):
     x = np.array([1j * i for i in range(1, deg + 1)])
     history = np.array(x)
 
-    for i in range(10):
+    for i in range(utils.MAX_RUNS):
         for i in range(len(x)):
             x[i] -= f(x[i]) / prod_diff(x, i)
         

@@ -140,7 +140,7 @@ y = np.linspace(-15, 15, 1000)
 X, Y = np.meshgrid(x, y)
 Z = X + Y * 1j
 F = f_dk(Z)
-ax5.pcolormesh(X, Y, np.angle(F), cmap='hsv')
+ax5.pcolormesh(X, Y, np.angle(F), cmap='magma')
 # Darken (brightness) the image based on magnitude
 ax5.pcolormesh(X, Y, np.log(np.abs(F)), cmap=cmap_rb)
 
