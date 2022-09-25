@@ -1,5 +1,3 @@
-import numpy as np
-
 def gradient(f, x1, x2):
     """Calculate the gradient for a given function and 2 points"""
     y1, y2 = f(x1), f(x2)

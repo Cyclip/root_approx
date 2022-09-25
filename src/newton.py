@@ -1,5 +1,3 @@
-import numpy as np
-
 def deriv(f):
     """Calculate the derivative of a function.
 
@@ -26,7 +24,7 @@ def newton(f, x0):
     # repeat until f(x) is essentially 0
     x = x0
     history = [x,]
-    while abs(f(x)) > 1e-6:
+    while abs(f(x)) > 1e-10:
         x -= f(x)/d(x)
         history.append(x)
         print(f"Newton {x:.5f} {d(x):.5f}")
