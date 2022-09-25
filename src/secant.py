@@ -1,3 +1,5 @@
+import utils
+
 def gradient(f, x1, x2):
     """Calculate the gradient for a given function and 2 points"""
     y1, y2 = f(x1), f(x2)
@@ -46,7 +48,8 @@ def secant(f, x1, x2):
     # Repeat until the absolute difference between
     # x1 and x2 are negligible
     history = [(x1, x2),]
-    while abs(x1 - x2) > 1e-5:
+    runs = 0
+    while abs(x1 - x2) > utils.ACCEPT_ERROR and runs < utils.MAX_RUNS:
         # Identify x-axis intersection
         m = gradient(f, x1, x2)
         x3 = x_intercept(m, x1, f(x1))
@@ -58,5 +61,6 @@ def secant(f, x1, x2):
 
         history.append((x1, x2))
         print(f"Secant {x1}-{x2}")
+        runs += 1
     
     return x2, history

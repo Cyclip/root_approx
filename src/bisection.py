@@ -1,3 +1,5 @@
+import utils
+
 def is_positive(val):
     return val >= 0
 
@@ -23,7 +25,8 @@ def bisection(f, a, b):
     c = (a + b) / 2
 
     history = []
-    while abs(f(c)) > 1e-5:
+    runs = 0
+    while abs(f(c)) > utils.ACCEPT_ERROR and runs < utils.MAX_RUNS:
         print("Bisection", c, f(c))
         if is_positive(f(a)) == is_positive(f(c)):
             a = c
@@ -32,5 +35,6 @@ def bisection(f, a, b):
         
         c = (a + b) / 2
         history.append(c)
+        runs += 1
     
     return c, history
