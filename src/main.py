@@ -21,7 +21,7 @@ def move_figure(f, x, y):
 
 
 def f(x):
-    return x ** 2
+    return x ** 2 - 3
 
 # Newton-Raphson method
 x0 = 8
@@ -38,18 +38,16 @@ error_s = result_s - EXPECTED
 # Plot the function
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(10, 10))
 fig.suptitle("Approximating roots through multiple methods")
+x = np.linspace(-10, 10, 100)
 
 # Ax1
-x = np.linspace(-10, 10, 100)
-ax1.plot(x, np.zeros(len(x)), color='gray')
 ax1.plot(x, f(x), label="f(x)")
 ax1.plot(history_nr, f(np.array(history_nr)), marker='o', label="History")
-ax1.plot(result_nr, f(result_nr), 'o', label="Result")
+ax1.plot(result_nr, f(result_nr), 'o', label="Result", color="red")
 ax1.set_title(f"Newton-Raphson ({len(history_nr)} runs, error: {error_nr:.2f})")
 ax1.legend()
 
 # Ax2
-x = np.linspace(-10, 10, 100)
 ax2.plot(x, f(x), label="f(x)")
 
 # Plot history
@@ -57,14 +55,16 @@ ax2.plot(x, f(x), label="f(x)")
 # Plot the x1 and x2 values
 x1 = [x[0] for x in history_s]
 x2 = [x[1] for x in history_s]
-ax1.plot(x, np.zeros(len(x)), color='gray')
 ax2.plot(x1, f(np.array(x1)), marker='o', label="History")
 ax2.plot(x2, f(np.array(x2)), marker='o')
 
-ax2.plot(result_s, f(result_s), 'o', label="Result")
+ax2.plot(result_s, f(result_s), 'o', label="Result", color="red")
 ax2.set_title(f"Secant ({len(history_s)} runs, error: {error_s:.2f})")
 ax2.legend()
 
+# y = 0
+ax1.plot(x, np.zeros(len(x)), color='#B1B1B1', alpha=0.75, linewidth=0.5)
+ax2.plot(x, np.zeros(len(x)), color='#B1B1B1', alpha=0.75, linewidth=0.5)
 
 # Move window to top left corner
 move_figure(fig, 0, 0)

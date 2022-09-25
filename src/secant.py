@@ -59,6 +59,6 @@ def secant(f, x1, x2):
         x2 = x3
 
         history.append((x1, x2))
-        print(f"{x1}-{x2}")
+        print(f"Secant {x1}-{x2}")
     
     return x2, history
