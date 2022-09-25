@@ -17,7 +17,7 @@ X, Y = np.meshgrid(x, y)
 Z = X + Y * 1j
 F = f_dk(Z)
 plt.figure()
-plt.title("Domain color plot")
+plt.title("Domain colour plot for f(z) = (z^3 + 2z^2 + 12z + 24) + (z^2 + 2z) * 1j")
 plt.pcolormesh(X, Y, np.angle(F), cmap='hsv')
 # Darken (brightness) the image based on magnitude
 plt.pcolormesh(X, Y, np.log(np.abs(F)), cmap=cmap_rb)
